@@ -1,0 +1,14 @@
+{
+  "name": "ts-starter",
+  "dependencies": {
+    "@types/jasmine": "^3.5.10",
+    "chokidar-cli": "^2.1.0",
+    "jasmine": "^3.5.0",
+    "jasmine-ts-console-reporter": "^3.1.1",
+    "typescript": "^3.9.3"
+  },
+  "scripts": {
+    "test-tdd": "rm -rf dist && chokidar src/{,**/}*.ts --initial -c 'tsc --project tsconfig.json && clear && jasmine --reporter=jasmine-ts-console-reporter dist/{,**/}*.spec.js' -d 100",
+    "test-debug": "rm -rf dist && tsc --project tsconfig.json && node --inspect-brk ./node_modules/jasmine/bin/jasmine.js dist/{,**/}*.spec.js"
+  }
+}
